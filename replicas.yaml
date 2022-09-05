@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: amit-replica
+spec:
+  template:
+    metadata:
+      name: amit-pod
+      labels:
+        type: nginx-pod
+    spec:
+      containers:
+        - name: amit-nginx-container
+          image: nginx
+  replicas: 3
+  selector:
+    matchLabels:
+      type: nginx-pod
+  
